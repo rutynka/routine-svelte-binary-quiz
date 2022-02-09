@@ -14,8 +14,8 @@ This is a Svelte quiz type for [Rutynka](https://rutynka.io) apps.
 Clone and install the dependencies...
 
 ```bash
-npx degit rutynka/routine-svelte-quiz#master routine-svelte-binary-quiz.git
-cd routine-svelte-quiz
+npx degit rutynka/routine-svelte-binary-quiz#master routine-svelte-binary-quiz.git
+cd routine-svelte-binary-quiz
 yarn install
 ```
 

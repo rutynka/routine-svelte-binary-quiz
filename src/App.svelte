@@ -157,7 +157,9 @@
 	}
 
 	onMount(async () => {
+		bb.set_color(150);
 		console.log('fetch localdata:')
+
 		// fetch('/assets/jsonld/1-Cotingidae_stubs.json')
 		// fetch('/assets/jsonld/2-Passeri_stubs.json')
 		// fetch('/assets/jsonld/17-stopnie-w-policji.json')
@@ -204,7 +206,8 @@
 		{#each quizData as row, index}
 		<div class="binary { index !== cycle ? 'js--hiden-binary' : 'show'}">
 			<figure class="center {current === 'correct' ? 'js--correct' : ''}">
-				<img loading="lazy" class="" src="{ row.item.image.contentUrl }" data-answer="{ row.item.name }" alt="{ row.item.name }">
+				<!-- <img loading="lazy" class="" src="{ row.item.image.contentUrl }" data-answer="{ row.item.name }" alt="{ row.item.name }"> -->
+				<img loading="lazy" class="" src="{ row.item.image.thumbnail.contentUrl }" data-answer="{ row.item.name }" alt="{ row.item.name }">
 				<figcaption data-search class="center-desc desc { showDesc ? 'js--hiden-binary' : 'show'}">{ row.item.name }</figcaption>
 			</figure>
 		</div>

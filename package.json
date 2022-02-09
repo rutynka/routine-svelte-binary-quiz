@@ -1,6 +1,6 @@
 {
   "name": "routine-svelte-binary-quiz",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "ru7ynk4",
   "description": "Rutynka binary quiz - with helpers",
   "svelte": "src/index.js",
