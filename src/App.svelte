@@ -16,7 +16,7 @@
 	let current = ''
 	let interval = {}
 	let showFalseText = true;
-	let randText = 0
+	let randTextPos = 0
 
 	let showDesc = false;
 
@@ -48,7 +48,7 @@
 		}
 	}
 
-	function pressedEvent(e) {
+	function pressEvent(e) {
         const keyName = e.key;
         console.log('logic press button: ' + keyName);
         if (keyName === 'Control' && e.location === 1 || e.target.id === 'btnTrue') {
@@ -68,9 +68,9 @@
 		console.log('Win')
 		clearInterval(interval);
 		prgs.store_progress({collectionName:allTheFish.name,exerciseTime:bb.get_timer()})
-		bb.question = 'Excellent !'
+		bb.question = 'Excellent!'
 		document.body.classList.add('bg-correct')
-		document.removeEventListener('keyup', pressedEvent);
+		document.removeEventListener('keyup', pressEvent);
 	}
 
 	function shuffle(a) {
@@ -112,14 +112,14 @@
 		} else {
 			showFalseText = Math.random() < 0.5 ? true : false;
 		}
-		randText = cycle
+		randTextPos = cycle
 		if (showFalseText) {
-			randText = Math.floor(Math.random() * quizData.length);
-			// false positive case - text should be false when random instead is random but digit could be the same like cyckle
-			if (cycle === randText) { showFalseText = false; }
+			randTextPos = Math.floor(Math.random() * quizData.length);
+			// false positive case - text should be false when random instead random digit is the same like cyckle
+			if (cycle === randTextPos) { showFalseText = false; }
 		}
-		console.log('false text? ', showFalseText, 'randText:' , randText, 'cycle: ',cycle);
-		bb.question = quizData[randText].item.name
+		console.log('false text? ', showFalseText, 'randText:' , randTextPos, 'cycle: ',cycle);
+		bb.question = quizData[randTextPos].item.name
 		// showNextImage()}
 	}
 
@@ -147,7 +147,7 @@
 			showDesc = !showDesc
 			document.body.classList.remove('bg-correct')
 			quizData = shuffle(allTheFish.itemListElement.slice());
-			document.addEventListener('keyup', pressedEvent);
+			document.addEventListener('keyup', pressEvent);
 			
 			initVisibleImage()
 			startTimerQuestions()
@@ -214,8 +214,8 @@
 		{/each}
 	</div>
 	<div class='btn-keys'>
-		<button on:click={pressedEvent} id="btnTrue" class="btn-logic btn-true">TRUE</button>
-		<button on:click={pressedEvent} id="btnFalse" class="btn-logic btn-false">FALSE</button>
+		<button on:click={pressEvent} id="btnTrue" class="btn-logic btn-true">TRUE</button>
+		<button on:click={pressEvent} id="btnFalse" class="btn-logic btn-false">FALSE</button>
 	</div>
 <Progress bind:this={prgs}/>
 <style>

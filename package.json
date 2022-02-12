@@ -1,6 +1,6 @@
 {
   "name": "routine-svelte-binary-quiz",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "ru7ynk4",
   "description": "Rutynka binary quiz - with helpers",
   "svelte": "src/index.js",
@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@rutynka/helper-bar-board": "0.1.0",
-    "@rutynka/helper-progress": "^0.1.2",
+    "@rutynka/helper-progress": "^0.1.3",
     "sirv-cli": "^2.0.0"
   },
   "jest": {
